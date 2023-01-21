@@ -28,8 +28,7 @@ public class SkillServiceImpl implements SkillService {
 	
 	@Override
 	public List<Skill> getAllSkills() {
-        List<Skill> skills = skillRepo.findAll();
-		return skills;
+        return skillRepo.findAll();
 	}
 	
 	
@@ -47,8 +46,7 @@ public class SkillServiceImpl implements SkillService {
 	}
 	@Override
 	public Skill updateSkill(Skill skill) {
-		Skill skills=skillRepo.save(skill);
-		return skills;
+		return skillRepo.save(skill);
 	}
 }
 

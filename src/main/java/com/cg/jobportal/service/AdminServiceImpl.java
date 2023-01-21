@@ -22,21 +22,18 @@ public class AdminServiceImpl implements AdminService {
 		if (repo.existsById(ent.getAdminId())) {
 			throw new AdminAlreadyExistException();
 		}
-		Admin ad = repo.save(ent);
-		return ad;
+		return repo.save(ent);
 	}
 
 	@Override
 	public List<Admin> getAllAdmins() {
-		List<Admin> list = repo.findAll();
-		return list;
+		return repo.findAll();
 	}
 
 	@Override
 	public Optional<Admin> getAdminById(Long adminId) throws InvalidAdminException {
 		if (repo.findById(adminId) != null) {
-			Optional<Admin> finding = repo.findById(adminId);
-			return finding;
+			return repo.findById(adminId);
 		} else {
 			throw new InvalidAdminException();
 		}
@@ -47,8 +44,7 @@ public class AdminServiceImpl implements AdminService {
 		if (!(repo.existsById(ent.getAdminId()))) {
 			System.out.println("Admin Doesn't Exist");
 		}
-		Admin ad = repo.save(ent);
-		return ad;
+		return repo.save(ent);
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package com.cg.jobportal.service;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,14 +14,13 @@ public class SkillExperienceServiceImpl implements SkillExperienceService{
 
 	@Override
 	public SkillExperience addSkill(SkillExperience skillexperience) {
-		SkillExperience saveex=skillExRepo.save(skillexperience);
-		return saveex;
+		return skillExRepo.save(skillexperience);
 	}
 
+
 	@Override
-	public List<SkillExperience> getAllId(Long id) {
-		List<SkillExperience> list = skillExRepo.findAll();
-		return list;
+	public Object getById(long id) {
+		return skillExRepo.findById(id);
 	}
 	
 

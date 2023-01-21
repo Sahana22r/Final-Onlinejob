@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.jobportal.entity.Admin;
+
 import com.cg.jobportal.entity.Skill;
-import com.cg.jobportal.exceptions.InvalidAdminException;
+
 import com.cg.jobportal.exceptions.InvalidSkillException;
 import com.cg.jobportal.service.SkillService;
 @RestController
@@ -31,7 +31,7 @@ public class SkillController {
 	}
 
 	@GetMapping("/allSkills")
-	public ResponseEntity<List<Skill>> getAllSkills(SkillService skillService) {
+	public ResponseEntity<List<Skill>> getAllSkills() {
 		List<Skill> Skills = Sserv.getAllSkills();
 		return new ResponseEntity<List<Skill>>(Skills, HttpStatus.OK);
 	}

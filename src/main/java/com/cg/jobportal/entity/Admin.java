@@ -6,13 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 @Entity
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Admin {
 	@Id
@@ -28,12 +28,5 @@ public class Admin {
 	private String email;
 	@Column(nullable = false)
 	private String password;
-	public Admin(String firstName, String lastName, String userName, String email, String password) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.userName = userName;
-		this.email = email;
-		this.password = password;
-	}
+
 }

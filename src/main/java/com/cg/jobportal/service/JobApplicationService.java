@@ -18,9 +18,7 @@ public interface JobApplicationService  {
 	
 	JobApplication updateJobApplication(long id,JobApplication jobApplication);
 	
-	//List<JobApplication> findAllByJobId(Long jobId);
-	
-	//List<JobApplication> findByFreeLancerid(Long freelancerId);
+
 
 
 	

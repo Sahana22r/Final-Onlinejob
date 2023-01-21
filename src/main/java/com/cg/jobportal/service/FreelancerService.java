@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import com.cg.jobportal.entity.Freelancer;
 
-import jakarta.validation.Valid;
+
 
 public interface FreelancerService {
 

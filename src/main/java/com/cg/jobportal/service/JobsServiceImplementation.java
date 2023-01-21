@@ -32,21 +32,9 @@ public class JobsServiceImplementation implements JobsService {
 	
 	@Override
 	public Jobs addjob(Jobs jobs) {
-		Jobs pj = jar.save(jobs);
-		return pj;
+		return jar.save(jobs);
 	}
 	
-/*	@Override
-	public Jobs addjob(Jobs jobs) {
-		Jobs job = new Jobs();
-			
-			job.setSkill(sr.findById(jobs.getSkill()).get());
-			job.setActive(true);
-			job.setJobTitle(jobs.getJobTitle());
-			job.setJobDescription(jobs.getJobDescription());
-			return jar.save(job);
-		
-	}*/
 	
 	@Override
 	public List<Jobs> findAll() {

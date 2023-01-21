@@ -16,20 +16,17 @@ public class RecruiterServiceImpl implements RecruiterService{
 
 	@Override
 	public Recruiter saveRecruiter(Recruiter rec) {
-	Recruiter savedRecruiter=recRepo.save(rec);
-	return savedRecruiter;
+	return recRepo.save(rec);
 	}
 
 	@Override
 	public List<Recruiter> getAllRecruiters() {
-		List<Recruiter> savedRecruiters=recRepo.findAll();
-		return savedRecruiters;
+		return recRepo.findAll();
 	}
 	
 	@Override
 	public Optional<Recruiter> getRecruiterById(Long id) {
-		Optional<Recruiter>recruiter=recRepo.findById(id);
-		return recruiter;
+		return recRepo.findById(id);
 	}
 	
 	@Override
@@ -40,7 +37,6 @@ public class RecruiterServiceImpl implements RecruiterService{
 	
 	@Override
 	public Recruiter updateRecruiter(Recruiter rec) {
-		 Recruiter updateRecruiter=recRepo.save(rec);
-		return updateRecruiter;
+		 return recRepo.save(rec);
 	}
 }

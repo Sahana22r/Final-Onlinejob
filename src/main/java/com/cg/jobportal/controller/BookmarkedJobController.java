@@ -29,7 +29,7 @@ public class BookmarkedJobController {
 	@GetMapping("/getAllBookmarkedJob")
 	public ResponseEntity<List<BookmarkedJob>> getAllBookmarkedJob(){
 		List<BookmarkedJob> bookmark=bookJobServ.getAllBookmarkedJobs();
-		return new ResponseEntity<List<BookmarkedJob>>(bookmark, HttpStatus.OK);
+		return new ResponseEntity<>(bookmark, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/deleteBookmarkById/{id}")

@@ -21,9 +21,13 @@ public class Freelancer {
 	@Column(name = "freelancer_id", updatable = false)
 	private long id;
 
+	@Column(nullable = false)
 	private String userName;
+	@Column(nullable = false)
 	private String firstName;
+	@Column(nullable = false)
 	private String lastName;
+	@Column(nullable = false)
 	private String password;
 
 

@@ -17,20 +17,17 @@ public class FreelancerServiceImpl implements FreelancerService {
 
 	@Override
 	public Freelancer saveFreelancer(Freelancer free) {
-		Freelancer saved = frepo.save(free);
-		return saved;
+		return frepo.save(free);
 	}
 
 	@Override
 	public List<Freelancer> getAllFreelancer() {
-		List<Freelancer> list = frepo.findAll();
-		return list;
+		return frepo.findAll();
 	}
 
 	@Override
 	public Optional<Freelancer> getFreelancerById(long id) {
-		Optional<Freelancer> getId = frepo.findById(id);
-		return getId;
+		return frepo.findById(id);
 	}
 
 	@Override
@@ -44,14 +41,12 @@ public class FreelancerServiceImpl implements FreelancerService {
 
 	@Override
 	public Freelancer updateFreelancer(Freelancer free) {
-		Freelancer update = frepo.save(free);
-		return update;
+		return frepo.save(free);
 	}
 
 	@Override
 	public List<Freelancer> FreelancerByUserName(String userName) {
-		List<Freelancer> getName = frepo.findByUserName(userName);
-		return getName;
+		return frepo.findByUserName(userName);
 	}
 	
 	

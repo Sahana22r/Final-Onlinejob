@@ -29,12 +29,12 @@ public class BookmarkedFreelancerController {
 	@PostMapping("/saveBookmarkedFreelancer")
 	public ResponseEntity<BookmarkedFreelancer> saveBookmarkedFreelancer(@RequestBody BookmarkedFreelancer bmark)throws BookmarkedFreelancerAlreadyExistsException {
 		BookmarkedFreelancer savedBookmarkedFreelancer=bookfreeServ.saveBookmarkedFreelancer(bmark);
-		return new ResponseEntity<BookmarkedFreelancer>(savedBookmarkedFreelancer, HttpStatus.CREATED);
+		return new ResponseEntity<>(savedBookmarkedFreelancer, HttpStatus.CREATED);
 	}
 	@GetMapping("/getall")
 	public ResponseEntity<List<BookmarkedFreelancer>> getAllBookmarkedFreelancer(){
 		List<BookmarkedFreelancer> allBookmarkedFreelancer = bookfreeServ.getAllBookmarkedFreelancer();
-		return new ResponseEntity<List<BookmarkedFreelancer>>(allBookmarkedFreelancer, HttpStatus.OK);
+		return new ResponseEntity<>(allBookmarkedFreelancer, HttpStatus.OK);
 	}
 	@GetMapping("/getBookmarkedFreelancer/{id}")
 	public ResponseEntity<Optional<BookmarkedFreelancer>> getBookmarkedFreelancerById(@PathVariable long id) throws NoBookmarkedFreelancerExistsException{
@@ -44,6 +44,6 @@ public class BookmarkedFreelancerController {
 	@DeleteMapping("/delBookmarkedFreelancer/{id}")
 	public ResponseEntity<String>  deleteBookmarkedFreelancerById(@PathVariable long id) {
 		String msg=bookfreeServ.deleteBookmarkedFreelancerById(id);
-		return new ResponseEntity<String>(msg, HttpStatus.OK); 
+		return new ResponseEntity<>(msg, HttpStatus.OK); 
 	}
 }

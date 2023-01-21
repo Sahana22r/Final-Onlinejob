@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 import com.cg.jobportal.entity.BookmarkedJob;
 import com.cg.jobportal.repository.BookmarkedJobRepository;
 
@@ -16,14 +16,12 @@ public class BookmarkedJobServiceImpl implements BookmarkedJobService{
 	
 	@Override
 	public BookmarkedJob saveJob(BookmarkedJob book) {
-	BookmarkedJob BookmarkedJob=bookRepo.save(book);
-	return BookmarkedJob;
+	return bookRepo.save(book);
 	}
 
 	@Override
 	public List<BookmarkedJob> getAllBookmarkedJobs() {
-		List<BookmarkedJob> BookmarkedJobs=bookRepo.findAll();
-		return BookmarkedJobs;
+		return bookRepo.findAll();
 	}
 	
 	@Override

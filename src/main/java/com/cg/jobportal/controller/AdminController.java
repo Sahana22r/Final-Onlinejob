@@ -32,13 +32,13 @@ public class AdminController {
 	@PostMapping("/saveAdmin")
 	public ResponseEntity<Admin> saveAdmin(Admin ent)throws AdminAlreadyExistException{
 		Admin savedad=serv.saveAdmin(ent);
-		return new ResponseEntity<Admin>(savedad,HttpStatus.CREATED);
+		return new ResponseEntity<>(savedad,HttpStatus.CREATED);
 		
 	}
 	@GetMapping("/getAllAdmin")
 	public ResponseEntity<List<Admin>> getAllAdmins(){
 		List<Admin> Admins=serv.getAllAdmins();
-		return new ResponseEntity<List<Admin>>(Admins, HttpStatus.OK);
+		return new ResponseEntity<>(Admins, HttpStatus.OK);
 	}
 	
 	@GetMapping("/getAdmin/{adminId}")

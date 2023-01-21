@@ -22,9 +22,11 @@ public class SkillExperienceController {
 			return new ResponseEntity<SkillExperience>(exp, HttpStatus.OK);
 	}
 
-	@GetMapping("/getAllExperience/id/{id}")
-	public ResponseEntity<SkillExperience> getAll(@PathVariable Long id) {
-			SkillExperience expo=(SkillExperience) skillExServ.getAllId(id);
-			return new ResponseEntity<SkillExperience>(expo, HttpStatus.OK);
+	@GetMapping("/getExperience/{id}")
+	public ResponseEntity<Object> getById(@PathVariable long id) {
+	
+			return new ResponseEntity<>(skillExServ.getById(id), HttpStatus.OK);
 	}	
+	
+	
 }

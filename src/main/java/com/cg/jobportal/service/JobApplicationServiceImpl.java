@@ -37,13 +37,9 @@ public class JobApplicationServiceImpl implements JobApplicationService {
 	@Override
 	public JobApplication updateJobApplication(long id, JobApplication jobApplication) {
 		if(jar.existsById(id))
-	return	jar.save(jobApplication);
+	 return	jar.save(jobApplication);
 		return jobApplication;	
 
-	/*	JobApplication jobApplication1 = jar.findById(id).get();
-		jar.save(jobApplication);
 
-		return jobApplication;
-	}*/
 	}
 }

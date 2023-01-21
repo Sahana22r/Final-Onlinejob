@@ -24,22 +24,19 @@ public class BookmarkedFreelancerServiceImpl implements BookmarkedFreelancerServ
 		if(bookRepo.existsById(bmark.getId()))
 			throw new BookmarkedFreelancerAlreadyExistsException();
 		
-		BookmarkedFreelancer savedBookmarkedFreelancer= bookRepo.save(bmark);
-		return savedBookmarkedFreelancer;
+		return bookRepo.save(bmark);
 	}
 	
 	@Override
 	public List<BookmarkedFreelancer> getAllBookmarkedFreelancer(){
-		List<BookmarkedFreelancer>  bmarkfreelancer=bookRepo.findAll();
-		return  bmarkfreelancer;
+		return bookRepo.findAll();
 	}
 	
 	@Override
 	public Optional<BookmarkedFreelancer> getBookmarkedFreelancerById(long id) throws NoBookmarkedFreelancerExistsException{
-		if(bookRepo.existsById(id)==false)
+		if(!bookRepo.existsById(id))
 			throw new NoBookmarkedFreelancerExistsException();
-		Optional<BookmarkedFreelancer> book=bookRepo.findById(id);
-		return book;
+		return bookRepo.findById(id);
 	}
 	@Override
 	public String deleteBookmarkedFreelancerById(long id) {

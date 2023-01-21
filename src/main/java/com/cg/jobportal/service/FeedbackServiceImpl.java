@@ -15,20 +15,17 @@ public class FeedbackServiceImpl implements FeedbackService {
 
 	@Override
 	public Feedback addFeedback(Feedback feedback) {
-		Feedback fb = feedrepo.save(feedback);
-		return fb;
+		return feedrepo.save(feedback);
 	}
 
 	@Override
 	public List<Feedback> getAllFeedbacks() {
-		List<Feedback> list = feedrepo.findAll();
-		return list;
+		return feedrepo.findAll();
 	}
 
 	@Override
 	public Feedback updateFeedback(Feedback ent) {
-		Feedback up = feedrepo.save(ent);
-		return up;
+		return feedrepo.save(ent);
 	}
 
 }
