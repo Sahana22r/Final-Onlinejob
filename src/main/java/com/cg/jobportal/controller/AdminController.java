@@ -42,9 +42,11 @@ public class AdminController {
 		return new ResponseEntity<>(Admin, HttpStatus.OK);
 	}
 	
+
 	@GetMapping("/{adminId}")
 	public ResponseEntity<Admin> getAdminById(@PathVariable long adminId) throws InvalidAdminException{
 		Admin admin=adminService.getAdminById(adminId);
+
 		return new ResponseEntity<>(admin, HttpStatus.OK);
 		
 	}

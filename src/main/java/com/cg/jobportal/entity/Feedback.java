@@ -31,6 +31,7 @@ public class Feedback {
 	@Max(10)
 	@Column(nullable = false)
 	Integer ranges;
+	
 	@Length(max = 50)
 	@Column(nullable = false)
 	String comments;

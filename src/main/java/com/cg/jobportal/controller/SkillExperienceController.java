@@ -8,22 +8,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.jobportal.entity.SkillExperience;
+import com.cg.jobportal.exceptions.InvalidSkillException;
+import com.cg.jobportal.exceptions.InvalidSkillExperienceException;
 import com.cg.jobportal.service.SkillExperienceService;
 @RestController
 public class SkillExperienceController {
 	
 	@Autowired
-	SkillExperienceService skillExServ;
+	private SkillExperienceService skillExServ;
 
 	@PostMapping("/addExperience")
-	public ResponseEntity<SkillExperience> addSkillExperience(@RequestBody SkillExperience skillexperience) {
+	public ResponseEntity<SkillExperience> addSkillExperience(@RequestBody SkillExperience skillexperience) throws InvalidSkillExperienceException {
 		
 			SkillExperience exp=skillExServ.addSkill(skillexperience);
 			return new ResponseEntity<SkillExperience>(exp, HttpStatus.OK);
 	}
 
 	@GetMapping("/getExperience/{id}")
-	public ResponseEntity<Object> getById(@PathVariable long id) {
+	public ResponseEntity<Object> getById(@PathVariable long id)throws InvalidSkillExperienceException {
 	
 			return new ResponseEntity<>(skillExServ.getById(id), HttpStatus.OK);
 	}	

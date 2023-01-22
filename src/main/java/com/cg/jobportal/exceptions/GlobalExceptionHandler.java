@@ -50,4 +50,16 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<String>("Feedback Doesn't Exist,Please Try Again.", HttpStatus.CONFLICT);
 	}
 
+    @ExceptionHandler(value=InvalidSkillException.class)
+    public ResponseEntity<String>InvalidSkillException(InvalidSkillException msg){
+    	return new ResponseEntity<String>("Skill already exists , please try with another skill", HttpStatus.CONFLICT);
+    }
+    @ExceptionHandler(value=InvalidSkillExperienceException.class)
+    public ResponseEntity<String>InvalidSkillExperienceException(InvalidSkillExperienceException msg){
+    	return new ResponseEntity<String>("Skill Experience doesn't exist",HttpStatus.CONFLICT);
+    }
+    @ExceptionHandler(value=DuplicateSkillException.class)
+    public ResponseEntity<String>DuplicateSkillException(DuplicateSkillException msg){
+    	return new ResponseEntity<String>("Skill Already exist",HttpStatus.CONFLICT);
+    }
 }

@@ -10,14 +10,16 @@ import com.cg.jobportal.exceptions.InvalidSkillException;
 @Service
 public interface SkillService {
 
-	Skill saveSkill(Skill skl) throws InvalidSkillException;
+	Skill saveSkill(Skill skill) throws InvalidSkillException;
 
-	List<Skill> getAllSkills();
+	List<Skill> getAllSkills() ;
 	
-	Optional<Skill> getSkillById(long id);
+	
 
-	String deleteSkill(long id);
+	String deleteSkill(long id) ;
 
 	Skill updateSkill(Skill skill);
+
+	Optional<Skill> getSkillById(long id) throws InvalidSkillException;
 
 }
