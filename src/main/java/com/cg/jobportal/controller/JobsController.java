@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cg.jobportal.entity.Jobs;
+import com.cg.jobportal.entity.Job;
 
 import com.cg.jobportal.service.JobsService;
 
@@ -24,7 +24,7 @@ public class JobsController {
 	
 	
 	@PostMapping("/postJob")
-	public ResponseEntity<Object> job(@RequestBody Jobs jobs) {
+	public ResponseEntity<Object> job(@RequestBody Job jobs) {
 		js.addjob(jobs);
 		return new ResponseEntity<>("Job Posted Successfully", HttpStatus.OK);
 	}

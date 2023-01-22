@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import com.cg.jobportal.entity.Jobs;
+import com.cg.jobportal.entity.Job;
 import com.cg.jobportal.repository.FreelancerRepository;
 import com.cg.jobportal.repository.JobsRepository;
 import com.cg.jobportal.repository.RecruiterRepository;
@@ -31,18 +31,18 @@ public class JobsServiceImplementation implements JobsService {
 	FreelancerRepository freelancerrepo;
 	
 	@Override
-	public Jobs addjob(Jobs jobs) {
+	public Job addjob(Job jobs) {
 		return jar.save(jobs);
 	}
 	
 	
 	@Override
-	public List<Jobs> findAll() {
+	public List<Job> findAll() {
 		return jar.findAll();
 	}
 	
 	@Override
-	public Optional<Jobs> findById(long id) {
+	public Optional<Job> findById(long id) {
 		return jar.findById(id);
 	}
 

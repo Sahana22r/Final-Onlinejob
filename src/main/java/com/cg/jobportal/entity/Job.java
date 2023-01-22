@@ -7,7 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Jobs {
+public class Job {
 
 	@Id
 	@Column(name = "job_id")
@@ -31,8 +31,8 @@ public class Jobs {
 	@Column(nullable = false)
 	private Boolean active;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="fk_id_of_skill")
-	private Skill skill;
+	@ManyToOne(targetEntity = Freelancer.class, cascade = CascadeType.ALL)
+	@JoinColumn(name="fk_freelancer_id")
+	private Recruiter recruiter;
 
 }

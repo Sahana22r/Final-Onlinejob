@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.cg.jobportal.entity.Jobs;
+import com.cg.jobportal.entity.Job;
 
 @Repository
-public interface JobsRepository extends JpaRepository<Jobs, Long>{
+public interface JobsRepository extends JpaRepository<Job, Long>{
 
-	Jobs findByJobTitle(@Param("Title")String jobTitle);
+	Job findByJobTitle(@Param("Title")String jobTitle);
 
 }

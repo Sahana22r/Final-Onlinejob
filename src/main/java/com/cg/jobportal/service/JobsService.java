@@ -3,16 +3,16 @@ package com.cg.jobportal.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.cg.jobportal.entity.Jobs;
+import com.cg.jobportal.entity.Job;
 
 public interface JobsService {
 
 	
-	Jobs addjob(Jobs jobs);
+	Job addjob(Job jobs);
 	
-	List<Jobs> findAll();
+	List<Job> findAll();
 	
-	Optional<Jobs> findById(long id);
+	Optional<Job> findById(long id);
 	
 	String deletejob(long id);
 	

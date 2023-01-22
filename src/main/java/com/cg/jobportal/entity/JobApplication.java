@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,9 +29,9 @@ public class JobApplication {
 	@Column(nullable=false,length=50)
 	private String coverLetter;
 	
-	@ManyToOne(targetEntity = Jobs.class, cascade = CascadeType.ALL)
+	@OneToOne(targetEntity = Job.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "fk_jobs_id")
-	private Jobs job;
+	private Job job;
 
 
 	
