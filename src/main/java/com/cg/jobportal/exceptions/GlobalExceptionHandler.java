@@ -39,5 +39,15 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<String> NoElementFoundException(NoElementFoundException msg){
 		return new ResponseEntity<>("The entered id doesnt exist",HttpStatus.CONFLICT);
 	} 
+	
+	@ExceptionHandler(value = InvalidFreelancerException.class)
+	public ResponseEntity<String> invalidFreelancerException(InvalidFreelancerException msg) {
+		return new ResponseEntity<String>("Freelancer Doesn't Exist,Please Try Again.", HttpStatus.CONFLICT);
+	}
+	
+	@ExceptionHandler(value = InvalidFeedbackException.class)
+	public ResponseEntity<String> invalidFeedbackException(InvalidFeedbackException msg) {
+		return new ResponseEntity<String>("Feedback Doesn't Exist,Please Try Again.", HttpStatus.CONFLICT);
+	}
 
 }
