@@ -31,7 +31,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public Optional<Admin> getAdminById(Long adminId) throws InvalidAdminException {
+	public Admin getAdminById(long adminId) throws InvalidAdminException {
 		if (repo.findById(adminId) != null) {
 			return repo.findById(adminId);
 		} else {

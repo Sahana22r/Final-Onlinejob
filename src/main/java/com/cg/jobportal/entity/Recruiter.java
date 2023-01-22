@@ -22,7 +22,7 @@ public class Recruiter {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="recruiter_id")
-	private  Long id;
+	private  long id;
 	@Column(nullable = false)
 	private String firstName;
 	@Column(nullable = false)

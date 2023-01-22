@@ -19,5 +19,5 @@ public interface AdminService {
 
 	String loginadmin(Admin ad);
 
-	Optional<Admin> getAdminById(Long adminId) throws InvalidAdminException;
+	Admin getAdminById(long adminId) throws InvalidAdminException;
 }
