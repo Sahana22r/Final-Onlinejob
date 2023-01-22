@@ -25,7 +25,7 @@ public class Feedback  {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	Long id;
+	long id;
 	
 	Integer ranges;
 	String comments;

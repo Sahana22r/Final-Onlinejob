@@ -28,11 +28,13 @@ public class BookmarkedJob {
 	private Long id;
 
 
-	@ManyToOne(targetEntity=Recruiter.class, cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="fk_freelancer_id")
 	private Freelancer freelancer;
 	
-	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "fk_jobs_id")
+	private Job job;
 
 	
 	

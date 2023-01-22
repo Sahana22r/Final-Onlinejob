@@ -28,7 +28,7 @@ public class Skill {
 	private String description;
 
 	
-	@ManyToOne(targetEntity = Freelancer.class, cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="fk_freelancer_id")
 	private Freelancer freelancer;
 

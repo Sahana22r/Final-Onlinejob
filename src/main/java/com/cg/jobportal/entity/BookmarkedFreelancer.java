@@ -23,9 +23,13 @@ public class BookmarkedFreelancer {
 	private long id;
 
 	
-	@ManyToOne(targetEntity=Recruiter.class, cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="fk_recruiter_id")
 	private Recruiter bookmarkedBy;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="fk_freelancer_id")
+	private Freelancer freelancer;
 	
 }
  
