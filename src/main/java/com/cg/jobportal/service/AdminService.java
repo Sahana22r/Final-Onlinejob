@@ -1,23 +1,28 @@
 package com.cg.jobportal.service;
 
 import java.util.List;
-import java.util.Optional;
+
+import org.springframework.validation.annotation.Validated;
 
 import com.cg.jobportal.entity.Admin;
 import com.cg.jobportal.exceptions.AdminAlreadyExistException;
 import com.cg.jobportal.exceptions.InvalidAdminException;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 
+@Validated
 public interface AdminService {
 
-	Admin saveAdmin(Admin ent) throws AdminAlreadyExistException;
-
+	Admin saveAdmin(@Valid Admin admin) throws AdminAlreadyExistException;
+	
 	List<Admin> getAllAdmins();
+	
+	
+	Admin updateAdmin(long adminId, Admin admin) throws InvalidAdminException;
 
-	Admin updateAdmin(long admind, Admin ent);
-
-	String loginadmin(Admin ad);
-
-	Optional<Admin> getAdminById(Long adminId) throws InvalidAdminException;
+	String loginAdmin(Admin admin);
+	
+	
+	Admin getAdminById(long adminId) throws InvalidAdminException;
 }
