@@ -38,8 +38,8 @@ public class AdminController {
 	}
 	@GetMapping("/getAll")
 	public ResponseEntity<List<Admin>> getAllAdmins(){
-		List<Admin> Admins=adminService.getAllAdmins();
-		return new ResponseEntity<>(Admins, HttpStatus.OK);
+		List<Admin> Admin=adminService.getAllAdmins();
+		return new ResponseEntity<>(Admin, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{adminId}")

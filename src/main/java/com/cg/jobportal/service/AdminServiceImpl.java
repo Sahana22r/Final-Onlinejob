@@ -18,7 +18,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin saveAdmin(Admin admin) throws AdminAlreadyExistException {
-		if (adminRepository.existsById(admin.getAdminId())) {
+		if (adminRepository.existsByUserName(admin.getUserName())) {
 			throw new AdminAlreadyExistException();
 		}
 		return adminRepository.save(admin);
