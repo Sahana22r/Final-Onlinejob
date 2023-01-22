@@ -43,11 +43,6 @@ public class AdminController {
 	}
 	
 
-	@GetMapping("/getAdmin/{adminId}")
-	public ResponseEntity<Admin> getAdminById(@PathVariable long adminId) throws InvalidAdminException{
-		Admin admin=adminService.getAdminById(adminId);
-		return null;
-	}
 	@GetMapping("/{adminId}")
 	public ResponseEntity<Admin> getAdminById(@PathVariable long adminId) throws InvalidAdminException{
 		Admin admin=adminService.getAdminById(adminId);

@@ -8,19 +8,25 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+//import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.cg.jobportal.entity.Admin;
+import com.cg.jobportal.exceptions.InvalidAdminException;
 import com.cg.jobportal.repository.AdminRepository;
 
-@SpringBootTest
+
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureTestDatabase
 class AdminServiceImplTest {
 
 	
 	
 	@Autowired
-	AdminService adminService;
+	private AdminService adminService;
 	
 	@MockBean
 	private AdminRepository adminRepository;
@@ -32,9 +38,9 @@ class AdminServiceImplTest {
 	}
 
 	@Test
-	public void testGetStudentById() {
-		String admin_name = "john";
-		Admin admin = adminService.getAdminById();
-		assertEquals(admin_name, admin.getFirstName());
+	public void testGetAdmintById() throws InvalidAdminException {
+		String first_name = "john";
+		Admin adminById = adminService.getAdminById(1);
+		assertEquals(first_name, adminById.getFirstName());
 	}
 }
