@@ -39,5 +39,16 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<String> NoElementFoundException(NoElementFoundException msg){
 		return new ResponseEntity<>("The entered id doesnt exist",HttpStatus.CONFLICT);
 	} 
-
+    @ExceptionHandler(value=InvalidSkillException.class)
+    public ResponseEntity<String>InvalidSkillException(InvalidSkillException msg){
+    	return new ResponseEntity<String>("Skill already exists , please try with another skill", HttpStatus.CONFLICT);
+    }
+    @ExceptionHandler(value=InvalidSkillExperienceException.class)
+    public ResponseEntity<String>InvalidSkillExperienceException(InvalidSkillExperienceException msg){
+    	return new ResponseEntity<String>("Skill doesn't exist",HttpStatus.CONFLICT);
+    }
+    @ExceptionHandler(value=DuplicateSkillException.class)
+    public ResponseEntity<String>DuplicateSkillException(DuplicateSkillException msg){
+    	return new ResponseEntity<String>("Skill doesn't exist",HttpStatus.CONFLICT);
+    }
 }

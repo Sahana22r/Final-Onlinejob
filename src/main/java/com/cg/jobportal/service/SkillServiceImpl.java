@@ -18,11 +18,11 @@ public class SkillServiceImpl implements SkillService {
 	private SkillRepository skillRepo;
 	
 	@Override
-	public  Skill saveSkill(Skill skl) throws InvalidSkillException{
-		if(skillRepo.existsById(skl.getId()))
+	public  Skill saveSkill(Skill skill) throws InvalidSkillException{
+		if(skillRepo.existsById(skill.getSkillsById())) {
 			throw new InvalidSkillException();
 		
-		Skill savedSkill= skillRepo.save(skl);
+		Skill savedSkill= skillRepo.save(skill);
 		return savedSkill;
 	}
 	
@@ -33,7 +33,7 @@ public class SkillServiceImpl implements SkillService {
 	
 	
 	@Override
-	public Optional<Skill> getSkillById(long id) {
+	public Optional<Skill> getSkillById(long id) throws InvalidSkillException {
 		Optional<Skill> skill=skillRepo.findById(id);
 		return skill;
 	}
