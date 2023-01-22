@@ -31,8 +31,8 @@ public class Job {
 	@Column(nullable = false)
 	private Boolean active;
 	
-	@ManyToOne(targetEntity = Freelancer.class, cascade = CascadeType.ALL)
-	@JoinColumn(name="fk_freelancer_id")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="fk_recruiter_id")
 	private Recruiter recruiter;
 
 }

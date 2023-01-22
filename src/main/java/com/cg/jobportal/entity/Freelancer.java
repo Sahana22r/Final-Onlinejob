@@ -36,9 +36,7 @@ public class Freelancer {
 	@Column(nullable = false)
 	private String password;
 
-	@OneToMany(targetEntity = Freelancer.class, cascade = CascadeType.ALL)
-	@JoinColumn(name="fk_id_of_jobapplication")
-	private List<JobApplication> jobapplication;
+
 	
 
 }
