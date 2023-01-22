@@ -1,7 +1,7 @@
 package com.cg.jobportal.service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import com.cg.jobportal.entity.Admin;
 import com.cg.jobportal.exceptions.AdminAlreadyExistException;
@@ -11,13 +11,20 @@ import jakarta.validation.Valid;
 
 public interface AdminService {
 
-	Admin saveAdmin(Admin ent) throws AdminAlreadyExistException;
-
+	Admin saveAdmin(@Valid Admin admin) throws AdminAlreadyExistException;
+	
 	List<Admin> getAllAdmins();
+	
+	
+	Admin updateAdmin(long adminId, Admin admin) throws InvalidAdminException;
+
 
 	Admin updateAdmin(long admind, Admin ent);
 
 	String loginadmin(Admin ad);
+
+	String loginAdmin(Admin admin);
+	
 
 	Admin getAdminById(long adminId) throws InvalidAdminException;
 }
