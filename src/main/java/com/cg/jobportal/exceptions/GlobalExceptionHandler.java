@@ -25,8 +25,8 @@ public class GlobalExceptionHandler {
 				HttpStatus.CONFLICT);
 	}
 
-	@ExceptionHandler(value = NoBookmarkedFreelancerExistsException.class)
-	public ResponseEntity<String> NoBookmarkedFreelancerExistsException(NoBookmarkedFreelancerExistsException msg) {
+	@ExceptionHandler(value = InvalidBookmarkedFreelancerException.class)
+	public ResponseEntity<String> InvalidBookmarkedFreelancerException(InvalidBookmarkedFreelancerException msg) {
 		return new ResponseEntity<String>(" No bookmarked freelancer exists", HttpStatus.CONFLICT);
 	}
 

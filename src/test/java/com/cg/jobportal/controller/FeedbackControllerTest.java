@@ -1,3 +1,4 @@
+
 package com.cg.jobportal.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,13 +15,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.cg.jobportal.entity.Feedback;
+import com.cg.jobportal.entity.Recruiter;
 import com.cg.jobportal.service.FeedbackService;
 
 
 
 
 @WebMvcTest(FeedbackController.class)
-class FeedbacckControllerTest{
+class FeedbackControllerTest{
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -29,18 +31,20 @@ class FeedbacckControllerTest{
 	private FeedbackService feedbackService;
 
 	private Feedback feedback;
+	private Recruiter recruiter;
 
 	@BeforeEach
 	void setup() {
 		feedback = new Feedback(14, 4, "smith", recruiter);
+		
 
 	}
 
 	@Test
 	void testAddFeedback() throws Exception {
-		Feedback feedbackEntity = new Feedback(14, "sam", "smith", "samsmith", "sam@gmail.com", "pass123");
+		Feedback feedbackEntity = new Feedback(14, 8, "smith", recruiter);
 		Mockito.when(feedbackService.addFeedback(feedbackEntity)).thenReturn(feedback);
-		mockMvc.perform(MockMvcRequestBuilders.post("/saveAdmin").contentType(MediaType.APPLICATION_JSON).content(
+		mockMvc.perform(MockMvcRequestBuilders.post("/Feedback/save").contentType(MediaType.APPLICATION_JSON).content(
 				"{\r\n" + "  \"id\": 12,\r\n" + "  \"firstname\": \"john\",\r\n" + "  \"lastname\":\"doe\",\r\n"
 						+ "\"password\": \"pass123\",\r\n" + "  \"username\": \"johndoe\"\r\n" + "}"))
 				.andExpect(MockMvcResultMatchers.status().isCreated());

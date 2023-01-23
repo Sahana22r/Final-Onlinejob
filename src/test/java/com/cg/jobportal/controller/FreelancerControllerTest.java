@@ -41,7 +41,7 @@ class FreelancerControllerTest {
 		void testSavefreelancer() throws Exception {
 			Freelancer freelancerEntity = new Freelancer(20, "billsmith", "bill", "smith",  "pass123");
 			Mockito.when(freelancerService.saveFreelancer(freelancerEntity)).thenReturn(freelancer);
-			mockMvc.perform(MockMvcRequestBuilders.post("/savefreelancer")
+			mockMvc.perform(MockMvcRequestBuilders.post("/Freelancer/save")
 					.contentType(MediaType.APPLICATION_JSON)
 					.content("{\r\n" + 
 							"  \"id\": 20,\r\n" + 

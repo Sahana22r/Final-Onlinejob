@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.cg.jobportal.entity.Job;
 
 @Repository
-public interface JobsRepository extends JpaRepository<Job, Long>{
+public interface JobRepository extends JpaRepository<Job, Long>{
 
 	Job findByJobTitle(@Param("Title")String jobTitle);
 

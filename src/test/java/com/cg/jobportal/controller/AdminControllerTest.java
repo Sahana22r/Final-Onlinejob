@@ -36,7 +36,7 @@ class AdminControllerTest {
 	void testSaveAdmin() throws Exception {
 		Admin adminEntity = new Admin(14, "sam", "smith", "samsmith", "sam@gmail.com", "pass123");
 		Mockito.when(adminService.saveAdmin(adminEntity)).thenReturn(admin);
-		mockMvc.perform(MockMvcRequestBuilders.post("/saveAdmin").contentType(MediaType.APPLICATION_JSON).content(
+		mockMvc.perform(MockMvcRequestBuilders.post("/Admin/save").contentType(MediaType.APPLICATION_JSON).content(
 				"{\r\n" + "  \"id\": 12,\r\n" + "  \"firstname\": \"john\",\r\n" + "  \"lastname\":\"doe\",\r\n"
 						+ "\"password\": \"pass123\",\r\n" + "  \"username\": \"johndoe\"\r\n" + "}"))
 				.andExpect(MockMvcResultMatchers.status().isCreated());

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.jobportal.entity.Job;
 import com.cg.jobportal.repository.FreelancerRepository;
-import com.cg.jobportal.repository.JobsRepository;
+import com.cg.jobportal.repository.JobRepository;
 import com.cg.jobportal.repository.RecruiterRepository;
 import com.cg.jobportal.repository.SkillRepository;
 
@@ -18,7 +18,7 @@ public class JobsServiceImplementation implements JobsService {
 	
 	
 	@Autowired
-	JobsRepository jar;
+	JobRepository jar;
 	
 	
 	@Autowired

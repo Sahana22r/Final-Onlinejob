@@ -15,7 +15,7 @@ import com.cg.jobportal.entity.Job;
 import com.cg.jobportal.service.JobsService;
 
 @RestController
-public class JobsController {
+public class JobController {
 	
 	
 	@Autowired

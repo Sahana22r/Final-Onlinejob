@@ -28,9 +28,9 @@ public class FreelancerController {
 	private FreelancerService freelancerService;
 	
 	@PostMapping("/save")
-	 public String saveFreelancer(@RequestBody Freelancer freelancer)  {
+	 public ResponseEntity<Freelancer> saveFreelancer(@RequestBody Freelancer freelancer)  {
 		Freelancer saved = freelancerService.saveFreelancer(freelancer);
-		return "saved successfully";
+		return new ResponseEntity<>(saved,HttpStatus.CREATED);
 		 
 	 }
 	 @GetMapping("/all")
