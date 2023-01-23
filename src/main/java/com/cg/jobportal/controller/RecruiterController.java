@@ -47,7 +47,7 @@ public class RecruiterController {
 	}
 	
 	
-	@DeleteMapping("/deleteRecruiterId/{id}");
+	@DeleteMapping("/deleteRecruiterId/{id}")
 	public ResponseEntity<String> deleteById(@PathVariable long id) {
 		String delete = recruiterService.deleteById(id);
 		return new ResponseEntity<>(delete, HttpStatus.OK);
