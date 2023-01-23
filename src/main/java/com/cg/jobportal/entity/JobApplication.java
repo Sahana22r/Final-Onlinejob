@@ -17,6 +17,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/***********************************************************************
+ * @author sahana
+ * Created Date: 23 January, 2023 
+ * Description : This is the Entity class for JobApplication module.
+ ***********************************************************************/
 @Entity
 @Data
 @AllArgsConstructor

@@ -12,7 +12,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+/************************************************************
+ * @author sahana
+ * Created Date: 23 January, 2023 
+ * Description : This is the Entity class for Job module. 
+ ************************************************************/
 
 @Entity
 @Data
@@ -30,6 +34,7 @@ public class Job {
 	private String jobDescription;
 	@Column(nullable = false)
 	private Boolean active;
+	
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="fk_recruiter_id")

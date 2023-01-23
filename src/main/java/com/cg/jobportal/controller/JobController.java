@@ -14,6 +14,11 @@ import com.cg.jobportal.entity.Job;
 
 import com.cg.jobportal.service.JobsService;
 
+/************************************************************************************
+ * @author sahana
+ * Created Date: 23 January, 2023 
+ * Description: This class is the controller for the job module
+ ************************************************************************************/
 @RestController
 public class JobController {
 	
@@ -21,11 +26,15 @@ public class JobController {
 	@Autowired
 	JobsService js; 
 	
-	
-	
+	/*******************************************************************************************
+	 * @param job
+	 * @return       Response Entity of Object type
+	 * Description : This method posts a new job.
+	 * @PostMapping: Annotation for mapping HTTP POST requests onto specific handler methods.
+	 *******************************************************************************************/
 	@PostMapping("/postJob")
-	public ResponseEntity<Object> job(@RequestBody Job jobs) {
-		js.addjob(jobs);
+	public ResponseEntity<Object> job(@RequestBody Job job) {
+		js.addjob(job);
 		return new ResponseEntity<>("Job Posted Successfully", HttpStatus.OK);
 	}
 	
@@ -35,13 +44,22 @@ public class JobController {
 		return new ResponseEntity<>(js.findAll(), HttpStatus.OK);
 	}
 	
-	
+	/*********************************************************************************************
+	 * @param id
+	 * @return       Response Entity of Job type
+	 * Description : This method finds a job by id
+	 * @GetMapping: Annotation for mapping HTTP GET requests onto specific handler methods.
+	 **********************************************************************************************/
 	@GetMapping(value = "/findJobById/{id}")
 	public ResponseEntity<Object> findById(@PathVariable long id) {
 			return new ResponseEntity<>(js.findById(id), HttpStatus.OK);
 	}
 
-	
+	/**********************************************************************************************
+	 * @param id
+	 * @return  Response Entity of Job type
+	 * @DeleteMapping: Annotation for mapping HTTP GET requests onto specific handler methods.
+	 **********************************************************************************************/
 	@DeleteMapping("/deletejob/{id}")
 	public ResponseEntity<Object> deletejob(@PathVariable long id) {
 			js.deletejob(id);

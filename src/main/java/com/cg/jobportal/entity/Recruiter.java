@@ -1,6 +1,10 @@
 package com.cg.jobportal.entity;
 
-
+/*********************************************************************
+ * @author vedavyas
+ * Created Date: 23 January, 2023 
+ * Description : This is the Entity class for Recruiter module.
+ *********************************************************************/
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

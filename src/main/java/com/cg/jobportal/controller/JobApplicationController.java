@@ -18,12 +18,25 @@ import com.cg.jobportal.exceptions.NoElementFoundException;
 import com.cg.jobportal.service.JobApplicationService;
 import jakarta.validation.Valid;
 
+/****************************************************************************************************
+ * @author sahana
+ * Created Date: 23 January, 2023 
+ * Description: This is the rest controller class for JobApplication module.
+ ***************************************************************************************************/
 @RestController
 public class JobApplicationController {
 
+	
 	@Autowired
 	private JobApplicationService jobApplicationService;
 
+	/**************************************************************************************************
+	 * Method      : applyToJob
+	 * @param jobApplication
+	 * @return Response Entity of Object type
+	 * @postmapping: Post mapping requests a body from the user
+	 * 				 which is then persisted onto the database.
+	 **************************************************************************************************/
 	@PostMapping(value = "/applyJob")
 	public ResponseEntity<String> applyToJob(@RequestBody JobApplication jobApplication) {
 		JobApplication jp = jobApplicationService.applyToJob(jobApplication);
@@ -34,13 +47,31 @@ public class JobApplicationController {
 	public ResponseEntity<List<JobApplication>> findAll() {
 		return new ResponseEntity<>(jobApplicationService.findAll(), HttpStatus.OK);
 	}
-
+	
+	/********************************************************************************************
+	 * Method:  deleteById       
+	 * @param   id
+	 * @throws  NoElementFoundException
+	 * @return  Response Entity of Object type
+	 * Description: This method deletes a Job Application by id 
+	 * @deletemapping: Delete mapping expects a PathVariable to be passed 
+	 *                 which is used to delete the object from the database.
+	 ********************************************************************************************/
 	@DeleteMapping(value = "/delete/{id}")
 	public ResponseEntity<Object> remove(@Valid @PathVariable long id) throws NoElementFoundException {
 		jobApplicationService.remove(id);
 		return new ResponseEntity<>("job application deleted successfully", HttpStatus.OK);
 	}
 
+	/********************************************************************************************
+	 * Method      : updateJobApplication
+	 * @param id
+	 * @param jobApplication
+	 * @return Response Entity of Object type
+	 * Description : This method updates the existing Job Application.
+	 * @putmapping: Put mapping requests a body from the user
+	 * 				 which is then persisted onto the database.
+	 *********************************************************************************************/
 	@PutMapping(value = "/updateJob/{id}")
 	public ResponseEntity<Object> updateJobApplication(@Valid @PathVariable long id,@RequestBody JobApplication jobApplication) {
 		jobApplicationService.updateJobApplication(id, jobApplication);

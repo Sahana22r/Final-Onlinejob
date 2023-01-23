@@ -20,43 +20,81 @@ import com.cg.jobportal.exceptions.InvalidRecruiterException;
 import com.cg.jobportal.exceptions.RecruiterAlreadyExistException;
 import com.cg.jobportal.service.RecruiterService;
 
-
+/***********************************************************************************************************************
+ * @author vedavyas
+ * @param id
+ * @param recruiter
+ * @throws InvalidRecruiterException 
+ * Created Date: 23 January, 2023 
+ * Description: This class is the controller for the Recruiter module
+ ***********************************************************************************************************************/
 @RequestMapping("/Recruiter")
 @RestController
 public class RecruiterController {
-	
+
 	@Autowired
 	public RecruiterService recruiterService;
 
+	/*********************************************************************************************************************
+	 * @param recruiter
+	 * @return: Response Entity of Object type
+	 * @throws RecruiterAlreadyExistException
+	 * @postmapping: Post mapping requests a body from the user which is then
+	 *               persisted onto the database.
+	 *********************************************************************************************************************/
 	@PostMapping("/save")
-	public ResponseEntity<Recruiter> saveRecruiter(@RequestBody Recruiter recruiter) throws RecruiterAlreadyExistException{
+	public ResponseEntity<Recruiter> saveRecruiter(@RequestBody Recruiter recruiter)
+			throws RecruiterAlreadyExistException {
 		Recruiter save = recruiterService.saveRecruiter(recruiter);
 		return new ResponseEntity<>(save, HttpStatus.CREATED);
 	}
-	
+
 	@GetMapping("/getAll")
 	public ResponseEntity<List<Recruiter>> getAllRecruiters() {
 		List<Recruiter> Recruiter = recruiterService.getAllRecruiters();
 		return new ResponseEntity<>(Recruiter, HttpStatus.OK);
 	}
-	
+
+	/**********************************************************************************************************************
+	 * @param id
+	 * @return: Response Entity of recruiter type 
+	 * Description : This method finds a Recruiter by id
+	 * @GetMapping: Get mapping expects a PathVariable to be passed which is then
+	 *              used to return the entity object that is fetched from the
+	 *              database.
+	 **********************************************************************************************************************/
 	@GetMapping("/{id}")
 	public ResponseEntity<Optional<Recruiter>> getRecruiterById(@PathVariable long id) {
 		Optional<Recruiter> recruiter = recruiterService.getRecruiterById();
 		return new ResponseEntity<>(recruiter, HttpStatus.OK);
 	}
-	
-	
+
+	/***********************************************************************************************************************
+	 * @param id
+	 * @return Response Entity of recruiter type
+	 * @DeleteMapping: Delete mapping expects a PathVariable to be passed which is
+	 *                 used to delete the object from the database.
+	 **********************************************************************************************************************/
 	@DeleteMapping("/deleteRecruiterId/{id}");
 	public ResponseEntity<String> deleteById(@PathVariable long id) {
 		String delete = recruiterService.deleteById(id);
 		return new ResponseEntity<>(delete, HttpStatus.OK);
 	}
-	
+
+	/*********************************************************************************************************************
+	 * @param id
+	 * @param recruiter
+	 * @return: Response Entity of Object type
+	 * @throws InvalidRecruiterException 
+	 * Description : This method updates the existing Recruiter Application.
+	 * @putmapping: Put mapping requests a body from the user which is then
+	 *              persisted onto the database.
+	 ********************************************************************************************************************/
 	@PutMapping("/updateRecruiter/{id}")
-	public ResponseEntity<Recruiter> updateRecruiter(@PathVariable long id,@RequestBody Recruiter  recruiter) throws InvalidRecruiterException{
-		Recruiter update =recruiterService.updateRecruiter(id,recruiter);
+	public ResponseEntity<Recruiter> updateRecruiter(@PathVariable long id, @RequestBody Recruiter recruiter)
+			throws InvalidRecruiterException {
+		Recruiter update = recruiterService.updateRecruiter(id, recruiter);
 		return new ResponseEntity<>(update, HttpStatus.ACCEPTED);
-		
+
 	}
 }
