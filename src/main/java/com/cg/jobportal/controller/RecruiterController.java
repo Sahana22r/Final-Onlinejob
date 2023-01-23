@@ -12,47 +12,51 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.jobportal.entity.Recruiter;
+import com.cg.jobportal.exceptions.InvalidRecruiterException;
 import com.cg.jobportal.exceptions.RecruiterAlreadyExistException;
 import com.cg.jobportal.service.RecruiterService;
+
+
+@RequestMapping("/Recruiter")
 @RestController
 public class RecruiterController {
 	
 	@Autowired
-	public RecruiterService recServ;
+	public RecruiterService recruiterService;
 
-	@PostMapping("/saveRecruiter")
-	public ResponseEntity<Recruiter> saveRecruiter(@RequestBody Recruiter rec) throws RecruiterAlreadyExistException{
-		Recruiter savedRecruiter = recServ.saveRecruiter(rec);
-		return new ResponseEntity<>(savedRecruiter, HttpStatus.CREATED);
+	@PostMapping("/save")
+	public ResponseEntity<Recruiter> saveRecruiter(@RequestBody Recruiter recruiter) throws RecruiterAlreadyExistException{
+		Recruiter save = recruiterService.saveRecruiter(recruiter);
+		return new ResponseEntity<>(save, HttpStatus.CREATED);
 	}
 	
-	@GetMapping("/allRecruiter")
-	public ResponseEntity<List<Recruiter>> getAllRecruiter() {
-		List<Recruiter> Recruiter = recServ.getAllRecruiters();
+	@GetMapping("/getAll")
+	public ResponseEntity<List<Recruiter>> getAllRecruiters() {
+		List<Recruiter> Recruiter = recruiterService.getAllRecruiters();
 		return new ResponseEntity<>(Recruiter, HttpStatus.OK);
 	}
 	
-	@GetMapping("/allRecruiters/{id}")
-	public ResponseEntity<Optional<Recruiter>> getRecruiterById(@PathVariable Long id) {
-		Optional<Recruiter> recruiter = recServ.getRecruiterById(id);
+	@GetMapping("/{id}")
+	public ResponseEntity<Optional<Recruiter>> getRecruiterById(@PathVariable long id) {
+		Optional<Recruiter> recruiter = recruiterService.getRecruiterById();
 		return new ResponseEntity<>(recruiter, HttpStatus.OK);
 	}
 	
 	
-	@DeleteMapping("/deleteRecruiterId/{id}")
-	public ResponseEntity<String> deleteById(@PathVariable Long id) {
-		String delete = recServ.deleteById(id);
+	@DeleteMapping("/deleteRecruiterId/{id}");
+	public ResponseEntity<String> deleteById(@PathVariable long id) {
+		String delete = recruiterService.deleteById(id);
 		return new ResponseEntity<>(delete, HttpStatus.OK);
 	}
 	
-	@PutMapping("/updateRecruiter")
-	public ResponseEntity<Recruiter> updateRecruiter(@RequestBody Recruiter  rec){
-		Recruiter update =recServ.updateRecruiter(rec);
+	@PutMapping("/updateRecruiter/{id}")
+	public ResponseEntity<Recruiter> updateRecruiter(@PathVariable long id,@RequestBody Recruiter  recruiter) throws InvalidRecruiterException{
+		Recruiter update =recruiterService.updateRecruiter(id,recruiter);
 		return new ResponseEntity<>(update, HttpStatus.ACCEPTED);
 		
 	}
-	
 }

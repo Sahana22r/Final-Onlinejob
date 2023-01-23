@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
 	}
 
 	@ExceptionHandler(value = RecruiterAlreadyExistException.class)
-	public ResponseEntity<String> RecruiterAlreadyExistsException(RecruiterAlreadyExistException user) {
+	public ResponseEntity<String> RecruiterAlreadyExistException(RecruiterAlreadyExistException user) {
 		return new ResponseEntity<String>("Recruiter already exist", HttpStatus.CONFLICT);
 	}
 
