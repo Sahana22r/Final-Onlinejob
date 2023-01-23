@@ -1,4 +1,4 @@
-package com.cg.jobportal.controller;
+/*package com.cg.jobportal.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -98,3 +98,4 @@ public class RecruiterController {
 
 	}
 }
+*/

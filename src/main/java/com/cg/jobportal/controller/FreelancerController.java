@@ -29,15 +29,14 @@ public class FreelancerController {
 	private FreelancerService freelancerService;
 	
 	@PostMapping("/save")
-<<<<<<< HEAD
-	 public ResponseEntity<Freelancer> saveFreelancer(@RequestBody Freelancer freelancer)  {
-=======
-	 public String saveFreelancer(@RequestBody Freelancer freelancer) throws FreelancerAlreadyExistException  {
->>>>>>> d1283f737ff0a8fbc54cdb352fdbf5c15a0c8520
+
+	 public ResponseEntity<Freelancer> saveFreelancer(@RequestBody Freelancer freelancer) throws FreelancerAlreadyExistException {
 		Freelancer saved = freelancerService.saveFreelancer(freelancer);
 		return new ResponseEntity<>(saved,HttpStatus.CREATED);
 		 
 	 }
+	
+	
 	 @GetMapping("/all")
 	 public ResponseEntity<List<Freelancer>> getAllFreelancer() {
 		List<Freelancer> freelancer=freelancerService.getAllFreelancer();

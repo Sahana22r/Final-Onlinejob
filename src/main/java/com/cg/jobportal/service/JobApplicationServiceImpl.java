@@ -6,40 +6,61 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.jobportal.entity.JobApplication;
-import com.cg.jobportal.exceptions.NoElementFoundException;
+import com.cg.jobportal.exceptions.InvalidJobApplicationException;
+import com.cg.jobportal.exceptions.JobApplicationAlreadyExistException;
+import com.cg.jobportal.exceptions.JobApplicationNotFoundException;
 import com.cg.jobportal.repository.JobApplicationRepository;
 
 @Service
 public class JobApplicationServiceImpl implements JobApplicationService {
+	
+	
+	
 	@Autowired
-	JobApplicationRepository jar;
+	private JobApplicationRepository jobapplicationrepository;
+	
+	
+	
 
 	@Override
-	public JobApplication applyToJob(JobApplication jobApplication) {
-
-		return jar.save(jobApplication);
+	public JobApplication applyToJob(JobApplication jobApplication) throws JobApplicationAlreadyExistException{
+       if (jobapplicationrepository.existsById(jobApplication.getId())) {
+    	   throw new JobApplicationAlreadyExistException();
+       }
+       
+		return jobapplicationrepository.save(jobApplication);
 	}
+	
+	
 
 	@Override
 	public List<JobApplication> findAll() {
-		return jar.findAll();
+		return jobapplicationrepository.findAll();
 	}
+	
+	
+	
 
 	@Override
-	public void remove(long id) throws NoElementFoundException {
-		if (jar.existsById(id)) {
+	public void remove(long id) throws JobApplicationNotFoundException {
+		if (jobapplicationrepository.existsById(id)) {
 
-			jar.deleteById(id);
+			jobapplicationrepository.deleteById(id);
 		} else
-			throw new NoElementFoundException();
+			throw new JobApplicationNotFoundException();
 	}
+	
+	
+	
 
 	@Override
-	public JobApplication updateJobApplication(long id, JobApplication jobApplication) {
-		if(jar.existsById(id))
-	 return	jar.save(jobApplication);
-		return jobApplication;	
-
+	public JobApplication updateJobApplication(long id, JobApplication jobApplication) throws InvalidJobApplicationException{
+		if(jobapplicationrepository.existsById(id)) {
+			return	jobapplicationrepository.save(jobApplication);	
+		}else
+			throw new InvalidJobApplicationException();
 
 	}
+	
+	
 }

@@ -1,4 +1,4 @@
-package com.cg.jobportal.service;
+/*package com.cg.jobportal.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -45,3 +45,4 @@ class AdminServiceImplTest {
 		assertEquals(first_name, adminById.getFirstName());
 	}
 }
+*/

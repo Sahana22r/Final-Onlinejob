@@ -8,10 +8,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.jobportal.entity.Job;
+import com.cg.jobportal.exceptions.InvalidJobException;
+import com.cg.jobportal.exceptions.JobAlreadyExistException;
+import com.cg.jobportal.service.JobService;
 
+<<<<<<< HEAD
 import com.cg.jobportal.service.JobsService;
 
 /************************************************************************************
@@ -19,13 +24,17 @@ import com.cg.jobportal.service.JobsService;
  * Created Date: 23 January, 2023 
  * Description: This class is the controller for the job module
  ************************************************************************************/
+=======
+@RequestMapping("/Job")
+>>>>>>> 29b2ea3470465137feb240234f024ece17e4413b
 @RestController
 public class JobController {
 	
 	
 	@Autowired
-	JobsService js; 
+	private JobService jobService; 
 	
+<<<<<<< HEAD
 	/*******************************************************************************************
 	 * @param job
 	 * @return       Response Entity of Object type
@@ -35,15 +44,23 @@ public class JobController {
 	@PostMapping("/postJob")
 	public ResponseEntity<Object> job(@RequestBody Job job) {
 		js.addjob(job);
+=======
+	
+	
+	@PostMapping("/post")
+	public ResponseEntity<Object> job(@RequestBody Job job)throws JobAlreadyExistException  {
+		jobService.addjob(job);
+>>>>>>> 29b2ea3470465137feb240234f024ece17e4413b
 		return new ResponseEntity<>("Job Posted Successfully", HttpStatus.OK);
 	}
 	
 	
-	@GetMapping("/findAllJobPost")
+	@GetMapping("/findAll")
 	public ResponseEntity<Object> findAll() {
-		return new ResponseEntity<>(js.findAll(), HttpStatus.OK);
+		return new ResponseEntity<>(jobService.findAll(), HttpStatus.OK);
 	}
 	
+<<<<<<< HEAD
 	/*********************************************************************************************
 	 * @param id
 	 * @return       Response Entity of Job type
@@ -61,8 +78,18 @@ public class JobController {
 	 * @DeleteMapping: Annotation for mapping HTTP GET requests onto specific handler methods.
 	 **********************************************************************************************/
 	@DeleteMapping("/deletejob/{id}")
+=======
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<Object> findById(@PathVariable long id)throws InvalidJobException {
+			return new ResponseEntity<>(jobService.getById(id), HttpStatus.OK);
+	}
+
+	
+	@DeleteMapping("/{id}")
+>>>>>>> 29b2ea3470465137feb240234f024ece17e4413b
 	public ResponseEntity<Object> deletejob(@PathVariable long id) {
-			js.deletejob(id);
+			jobService.deletejob(id);
 		return new ResponseEntity<>("deleted successfully", HttpStatus.OK);
 
 	}

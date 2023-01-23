@@ -11,18 +11,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.jobportal.entity.JobApplication;
-import com.cg.jobportal.exceptions.NoElementFoundException;
+import com.cg.jobportal.exceptions.InvalidJobApplicationException;
+import com.cg.jobportal.exceptions.JobApplicationAlreadyExistException;
+import com.cg.jobportal.exceptions.JobApplicationNotFoundException;
 import com.cg.jobportal.service.JobApplicationService;
 import jakarta.validation.Valid;
 
+<<<<<<< HEAD
 /****************************************************************************************************
  * @author sahana
  * Created Date: 23 January, 2023 
  * Description: This is the rest controller class for JobApplication module.
  ***************************************************************************************************/
+=======
+@RequestMapping("/JobApplication")
+>>>>>>> 29b2ea3470465137feb240234f024ece17e4413b
 @RestController
 public class JobApplicationController {
 
@@ -30,6 +37,7 @@ public class JobApplicationController {
 	@Autowired
 	private JobApplicationService jobApplicationService;
 
+<<<<<<< HEAD
 	/**************************************************************************************************
 	 * Method      : applyToJob
 	 * @param jobApplication
@@ -40,13 +48,19 @@ public class JobApplicationController {
 	@PostMapping(value = "/applyJob")
 	public ResponseEntity<String> applyToJob(@RequestBody JobApplication jobApplication) {
 		JobApplication jp = jobApplicationService.applyToJob(jobApplication);
+=======
+	@PostMapping(value = "/apply")
+	public ResponseEntity<String> applyToJob(@RequestBody JobApplication jobApplication)throws JobApplicationAlreadyExistException {
+		       jobApplicationService.applyToJob(jobApplication);
+>>>>>>> 29b2ea3470465137feb240234f024ece17e4413b
 		return new ResponseEntity<>("Job Applied Successfully", HttpStatus.CREATED);
 	}
 
-	@GetMapping(value = "/findAllJob")
+	@GetMapping(value = "/findAll")
 	public ResponseEntity<List<JobApplication>> findAll() {
 		return new ResponseEntity<>(jobApplicationService.findAll(), HttpStatus.OK);
 	}
+<<<<<<< HEAD
 	
 	/********************************************************************************************
 	 * Method:  deleteById       
@@ -59,10 +73,16 @@ public class JobApplicationController {
 	 ********************************************************************************************/
 	@DeleteMapping(value = "/delete/{id}")
 	public ResponseEntity<Object> remove(@Valid @PathVariable long id) throws NoElementFoundException {
+=======
+
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Object> remove(@Valid @PathVariable long id) throws JobApplicationNotFoundException {
+>>>>>>> 29b2ea3470465137feb240234f024ece17e4413b
 		jobApplicationService.remove(id);
 		return new ResponseEntity<>("job application deleted successfully", HttpStatus.OK);
 	}
 
+<<<<<<< HEAD
 	/********************************************************************************************
 	 * Method      : updateJobApplication
 	 * @param id
@@ -74,6 +94,10 @@ public class JobApplicationController {
 	 *********************************************************************************************/
 	@PutMapping(value = "/updateJob/{id}")
 	public ResponseEntity<Object> updateJobApplication(@Valid @PathVariable long id,@RequestBody JobApplication jobApplication) {
+=======
+	@PutMapping(value = "/{id}")
+	public ResponseEntity<Object> updateJobApplication(@Valid @PathVariable long id,@RequestBody JobApplication jobApplication)throws InvalidJobApplicationException {
+>>>>>>> 29b2ea3470465137feb240234f024ece17e4413b
 		jobApplicationService.updateJobApplication(id, jobApplication);
 		return new ResponseEntity<>("job application updated successfully", HttpStatus.OK);
 	}
