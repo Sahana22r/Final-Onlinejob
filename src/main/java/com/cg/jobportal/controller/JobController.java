@@ -16,17 +16,13 @@ import com.cg.jobportal.exceptions.InvalidJobException;
 import com.cg.jobportal.exceptions.JobAlreadyExistException;
 import com.cg.jobportal.service.JobService;
 
-<<<<<<< HEAD
-import com.cg.jobportal.service.JobsService;
-
 /************************************************************************************
  * @author sahana
  * Created Date: 23 January, 2023 
  * Description: This class is the controller for the job module
  ************************************************************************************/
-=======
+
 @RequestMapping("/Job")
->>>>>>> 29b2ea3470465137feb240234f024ece17e4413b
 @RestController
 public class JobController {
 	
@@ -34,7 +30,7 @@ public class JobController {
 	@Autowired
 	private JobService jobService; 
 	
-<<<<<<< HEAD
+
 	/*******************************************************************************************
 	 * @param job
 	 * @return       Response Entity of Object type
@@ -44,13 +40,12 @@ public class JobController {
 	@PostMapping("/postJob")
 	public ResponseEntity<Object> job(@RequestBody Job job) {
 		js.addjob(job);
-=======
+	}
 	
 	
 	@PostMapping("/post")
 	public ResponseEntity<Object> job(@RequestBody Job job)throws JobAlreadyExistException  {
 		jobService.addjob(job);
->>>>>>> 29b2ea3470465137feb240234f024ece17e4413b
 		return new ResponseEntity<>("Job Posted Successfully", HttpStatus.OK);
 	}
 	
@@ -60,7 +55,6 @@ public class JobController {
 		return new ResponseEntity<>(jobService.findAll(), HttpStatus.OK);
 	}
 	
-<<<<<<< HEAD
 	/*********************************************************************************************
 	 * @param id
 	 * @return       Response Entity of Job type
@@ -77,20 +71,18 @@ public class JobController {
 	 * @return  Response Entity of Job type
 	 * @DeleteMapping: Annotation for mapping HTTP GET requests onto specific handler methods.
 	 **********************************************************************************************/
-	@DeleteMapping("/deletejob/{id}")
-=======
 	
-	@GetMapping(value = "/{id}")
-	public ResponseEntity<Object> findById(@PathVariable long id)throws InvalidJobException {
-			return new ResponseEntity<>(jobService.getById(id), HttpStatus.OK);
-	}
-
 	
 	@DeleteMapping("/{id}")
->>>>>>> 29b2ea3470465137feb240234f024ece17e4413b
+
 	public ResponseEntity<Object> deletejob(@PathVariable long id) {
 			jobService.deletejob(id);
 		return new ResponseEntity<>("deleted successfully", HttpStatus.OK);
 
 	}
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<Object> findById(@PathVariable long id)throws InvalidJobException {
+			return new ResponseEntity<>(jobService.getById(id), HttpStatus.OK);
+	}
+
 }
