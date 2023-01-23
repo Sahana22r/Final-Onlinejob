@@ -1,14 +1,15 @@
 package com.cg.jobportal.service;
 
 import java.util.List;
+import java.util.Optional;
 
+//import org.apache.el.stream.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.cg.jobportal.entity.Admin;
 import com.cg.jobportal.exceptions.AdminAlreadyExistException;
 import com.cg.jobportal.exceptions.InvalidAdminException;
 import com.cg.jobportal.repository.AdminRepository;
-
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -18,7 +19,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin saveAdmin(Admin admin) throws AdminAlreadyExistException {
-		if (adminRepository.existsById(admin.getAdminId())) {
+		if (adminRepository.existsByUserName(admin.getUserName())) {
 			throw new AdminAlreadyExistException();
 		}
 		return adminRepository.save(admin);
@@ -31,8 +32,10 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin getAdminById(long adminId) throws InvalidAdminException {
+
 		if (adminRepository.existsById(adminId)) {
 			return adminRepository.findById(adminId).get();
+
 		} else {
 			throw new InvalidAdminException();
 		}
@@ -42,19 +45,23 @@ public class AdminServiceImpl implements AdminService {
 	public Admin updateAdmin(long adminId, Admin admin) throws InvalidAdminException {
 		if (adminRepository.existsById(adminId)) {
 			return adminRepository.save(admin);
-		}else {
+		} else {
 			throw new InvalidAdminException();
 		}
-		
+
 	}
 
 	@Override
 	public String loginAdmin(Admin admin) {
-		List<Admin> a = adminRepository.getByEmail(admin.getEmail());
-		List<Admin> b = adminRepository.getByPassword(admin.getPassword());
-		if (a.equals(admin.getEmail()) && b.equals(admin.getPassword())) {
+		Optional<Admin> a = Optional.of(adminRepository.findByUserName(admin.getUserName()));
+		//List<Admin> b = adminRepository.getByPassword(admin.getPassword());
+		if (a.isPresent()) {
+		if(a.get().getPassword().equals(admin.getPassword())) {
 			return "Login Successfull";
 		}
+		
+	}
 		return "Invalid email or password";
+
 	}
 }

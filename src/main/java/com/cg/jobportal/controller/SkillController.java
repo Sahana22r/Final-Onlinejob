@@ -22,37 +22,37 @@ import com.cg.jobportal.service.SkillService;
 @RestController
 public class SkillController {
 	@Autowired
-	private SkillService Sserv;
+	private SkillService serv;
 
 	@PostMapping("/addSkill")
-	public ResponseEntity<Skill> saveSkill(@RequestBody Skill skl) throws InvalidSkillException {
-		Skill savedskill = Sserv.saveSkill(skl);
+	public ResponseEntity<Skill> saveSkill(@RequestBody Skill skill) throws InvalidSkillException {
+		Skill savedskill = serv.saveSkill(skill);
 		return new ResponseEntity<Skill>(savedskill, HttpStatus.CREATED);
 	}
 
 	@GetMapping("/allSkills")
-	public ResponseEntity<List<Skill>> getAllSkills() {
-		List<Skill> Skills = Sserv.getAllSkills();
+	public ResponseEntity<List<Skill>> getAllSkills() throws InvalidSkillException{
+		List<Skill> Skills = serv.getAllSkills();
 		return new ResponseEntity<List<Skill>>(Skills, HttpStatus.OK);
 	}
 	
 	@GetMapping("/getSkills/{id}")
-	public ResponseEntity<Optional<Skill>> getSkillById(@PathVariable long id) {
-		Optional<Skill> std=Sserv.getSkillById(id);
+	public ResponseEntity<Optional<Skill>> getSkillById(@PathVariable long id) throws InvalidSkillException {
+		Optional<Skill> std=serv.getSkillById(id);
 		return new ResponseEntity<>(std, HttpStatus.OK);
 		
 	}
 
 
 	@DeleteMapping("/deleteSkill/{id}")
-	public ResponseEntity<String> deleteSkillById(@PathVariable int id) {
-		String msg = Sserv.deleteSkill(id);
+	public ResponseEntity<String> deleteSkillById(@PathVariable int id) throws InvalidSkillException {
+		String msg = serv.deleteSkill(id);
 		return new ResponseEntity<String>(msg, HttpStatus.GONE);
 	}
 	
 	@PutMapping("/updateSkill")
-	public Skill updateSkill(@RequestBody Skill skill) {
-			Skill up = Sserv.updateSkill(skill);
+	public Skill updateSkill(@RequestBody Skill skill) throws InvalidSkillException {
+			Skill up = serv.updateSkill(skill);
 			return up;
 	}
 }

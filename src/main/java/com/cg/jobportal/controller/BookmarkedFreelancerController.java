@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.jobportal.entity.BookmarkedFreelancer;
 import com.cg.jobportal.exceptions.BookmarkedFreelancerAlreadyExistsException;
-import com.cg.jobportal.exceptions.NoBookmarkedFreelancerExistsException;
+import com.cg.jobportal.exceptions.InvalidBookmarkedFreelancerException;
 import com.cg.jobportal.service.BookmarkedFreelancerService;
 
 
@@ -37,7 +37,7 @@ public class BookmarkedFreelancerController {
 		return new ResponseEntity<>(allBookmarkedFreelancer, HttpStatus.OK);
 	}
 	@GetMapping("/getBookmarkedFreelancer/{id}")
-	public ResponseEntity<Optional<BookmarkedFreelancer>> getBookmarkedFreelancerById(@PathVariable long id) throws NoBookmarkedFreelancerExistsException{
+	public ResponseEntity<Optional<BookmarkedFreelancer>> getBookmarkedFreelancerById(@PathVariable long id) throws InvalidBookmarkedFreelancerException{
 		Optional<BookmarkedFreelancer> bmarkfreelancer=bookfreeServ.getBookmarkedFreelancerById(id);
 		return new ResponseEntity<>(bmarkfreelancer, HttpStatus.OK);
 	}
