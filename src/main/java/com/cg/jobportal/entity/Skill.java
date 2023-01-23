@@ -20,19 +20,18 @@ public class Skill {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "skill_id")
-	private long id;
+	private long skillId;
 	@Column(nullable = false)
-	private String name;
+	private String firstName;
 	@Column(nullable = false)
+	private String lastName;
+	@Column(nullable = false)
+	private String usereName;
+	@Column (nullable = false)
 	private String description;
-
+	@Column (nullable = false)
+	private String freelancer;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="fk_freelancer_id")
-	private Freelancer freelancer;
-
-
 	
 	}
 

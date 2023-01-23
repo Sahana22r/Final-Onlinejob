@@ -10,4 +10,6 @@ import com.cg.jobportal.entity.SkillExperience;
 @Repository
 public interface SkillRepository extends JpaRepository<Skill, Long> {
 
+
+
 }
