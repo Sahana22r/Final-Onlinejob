@@ -29,7 +29,7 @@ public class FeedbackController {
 	@PostMapping("/save")
 	public ResponseEntity<Feedback> addFeedback(@RequestBody Feedback feedback) {
 		Feedback save=feedbackService.addFeedback(feedback);
-		return new ResponseEntity<>(save, HttpStatus.OK);
+		return new ResponseEntity<>(save, HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/getAll")

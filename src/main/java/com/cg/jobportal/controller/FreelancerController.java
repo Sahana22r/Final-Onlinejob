@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.jobportal.entity.Freelancer;
+import com.cg.jobportal.exceptions.FreelancerAlreadyExistException;
 import com.cg.jobportal.exceptions.InvalidFreelancerException;
 import com.cg.jobportal.service.FreelancerService;
 
@@ -28,7 +29,7 @@ public class FreelancerController {
 	private FreelancerService freelancerService;
 	
 	@PostMapping("/save")
-	 public String saveFreelancer(@RequestBody Freelancer freelancer)  {
+	 public String saveFreelancer(@RequestBody Freelancer freelancer) throws FreelancerAlreadyExistException  {
 		Freelancer saved = freelancerService.saveFreelancer(freelancer);
 		return "saved successfully";
 		 

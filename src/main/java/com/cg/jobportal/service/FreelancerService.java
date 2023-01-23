@@ -3,13 +3,14 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cg.jobportal.entity.Freelancer;
+import com.cg.jobportal.exceptions.FreelancerAlreadyExistException;
 import com.cg.jobportal.exceptions.InvalidFreelancerException;
 
 
 
 public interface FreelancerService {
 
-	Freelancer saveFreelancer(Freelancer freelancer);
+	Freelancer saveFreelancer(Freelancer freelancer) throws FreelancerAlreadyExistException;
 
 	List<Freelancer> getAllFreelancer();
 

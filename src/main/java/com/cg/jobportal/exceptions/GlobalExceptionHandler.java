@@ -62,4 +62,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String>DuplicateSkillException(DuplicateSkillException msg){
     	return new ResponseEntity<String>("Skill Already exist",HttpStatus.CONFLICT);
     }
+    
+    @ExceptionHandler(value = FreelancerAlreadyExistException.class)
+	public ResponseEntity<String> freelancerAlreadyExistException(FreelancerAlreadyExistException msg) {
+		return new ResponseEntity<String>("Freelancer Already Exist,Please Try Again.", HttpStatus.CONFLICT);
+	}
 }
