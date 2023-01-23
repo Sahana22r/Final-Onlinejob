@@ -59,11 +59,8 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(value = JobAlreadyExistException.class)
 	public ResponseEntity<String> jobAlreadyExistException(JobAlreadyExistException msg) {
 		return new ResponseEntity<>("Job Already Exist,Please Try Again.", HttpStatus.CONFLICT);
+	}
 
-	@ExceptionHandler(value=NoElementFoundException.class)
-	public ResponseEntity<String> NoElementFoundException(NoElementFoundException msg){
-		return new ResponseEntity<>("The entered id doesnt exist",HttpStatus.CONFLICT);
-	} 
 	
 	@ExceptionHandler(value = InvalidFreelancerException.class)
 	public ResponseEntity<String> invalidFreelancerException(InvalidFreelancerException msg) {

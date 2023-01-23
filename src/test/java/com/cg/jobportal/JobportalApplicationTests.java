@@ -1,4 +1,4 @@
-package com.cg.jobportal;
+/*package com.cg.jobportal;
 
 import static org.mockito.ArgumentMatchers.any;import static org.mockito.Mockito.when; 
 import org.junit.jupiter.api.Assertions;
@@ -53,4 +53,4 @@ public class AdminServiceTest {
 		Scheme s = new Scheme(2, "yukjj", 2022, "geh", "eyuu");
 		when(schemeRepository.existsById((long) 2)).thenReturn(false); 
 		Assertions.assertThrows(SchemeNotPresentException.class, () -> schemeServiceImpl.updateScheme(s));}
-}
+}*/

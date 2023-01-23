@@ -19,10 +19,24 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin saveAdmin(Admin admin) throws AdminAlreadyExistException {
-		if (adminRepository.existsByUserName(admin.getUserName())) {
+	/*	Admin admin1 = new Admin();
+		String userName = admin.getUserName();
+		String email = admin.getEmail();
+		String firstName = admin.getFirstName();
+		String lastName = admin.getLastName();
+		String password = admin.getPassword();
+		if (!(firstName == null || lastName == null || password == null || userName == null || email == null)  && !adminRepository.existsByUserName(admin1.getUserName()) ) {
+			admin1.setUserName(userName);
+			admin1.setFirstName(firstName);
+			admin1.setLastName(lastName);
+			admin1.setPassword(password);
+			admin1.setEmail(email);*/
+		if(!adminRepository.existsByUserName(admin.getUserName())) {
+			return adminRepository.save(admin);
+		}
+		else{
 			throw new AdminAlreadyExistException();
 		}
-		return adminRepository.save(admin);
 	}
 
 	@Override

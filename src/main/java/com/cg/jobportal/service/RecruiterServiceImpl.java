@@ -38,10 +38,10 @@ public class RecruiterServiceImpl implements RecruiterService {
 		}
 	}
 
+
 	@Override
 	public String deleteById(long id) {
-		Optional<Recruiter> recruiter = recruiterRepository.findById(id);
-		if (recruiter.isPresent()) {
+		if (recruiterRepository.existsById(id)) {
 			recruiterRepository.deleteById(id);
 			return "Recruiter data deleted successfully";
 		}
@@ -53,6 +53,9 @@ public class RecruiterServiceImpl implements RecruiterService {
 		if(recruiterRepository.existsById(id)) {
 			return recruiterRepository.save(recruiter);
 		}else {
-		return new 
+			throw new  InvalidRecruiterException();
 	}
+	}
+}
+
 
