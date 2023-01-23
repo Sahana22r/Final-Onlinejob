@@ -23,6 +23,10 @@ import com.cg.jobportal.service.JobService;
  ************************************************************************************/
 
 @RequestMapping("/Job")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89df81da66a85d8d23f0ab63a4aee050f97f6eca
 @RestController
 public class JobController {
 	
@@ -37,15 +41,24 @@ public class JobController {
 	 * Description : This method posts a new job.
 	 * @PostMapping: Annotation for mapping HTTP POST requests onto specific handler methods.
 	 *******************************************************************************************/
+<<<<<<< HEAD
 	@PostMapping("/postJob")
 	public ResponseEntity<Object> job(@RequestBody Job job) {
 		js.addjob(job);
 	}
+=======
+	
+
+>>>>>>> 89df81da66a85d8d23f0ab63a4aee050f97f6eca
 	
 	
 	@PostMapping("/post")
 	public ResponseEntity<Object> job(@RequestBody Job job)throws JobAlreadyExistException  {
 		jobService.addjob(job);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89df81da66a85d8d23f0ab63a4aee050f97f6eca
 		return new ResponseEntity<>("Job Posted Successfully", HttpStatus.OK);
 	}
 	
@@ -55,6 +68,10 @@ public class JobController {
 		return new ResponseEntity<>(jobService.findAll(), HttpStatus.OK);
 	}
 	
+<<<<<<< HEAD
+=======
+
+>>>>>>> 89df81da66a85d8d23f0ab63a4aee050f97f6eca
 	/*********************************************************************************************
 	 * @param id
 	 * @return       Response Entity of Job type
@@ -71,6 +88,11 @@ public class JobController {
 	 * @return  Response Entity of Job type
 	 * @DeleteMapping: Annotation for mapping HTTP GET requests onto specific handler methods.
 	 **********************************************************************************************/
+<<<<<<< HEAD
+=======
+	@DeleteMapping("/deletejob/{id}")
+
+>>>>>>> 89df81da66a85d8d23f0ab63a4aee050f97f6eca
 	
 	
 	@DeleteMapping("/{id}")

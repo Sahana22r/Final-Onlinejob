@@ -12,7 +12,12 @@ import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**************************************************************************************
+ * @author       Shifa Khanam Attar
+ * Description : This is the Entity class for Bookmarked Freelancer module. 
+ * Created Date: 23 January, 2023 
+ * 
+ *************************************************************************************/
 @Entity
 @Data
 @AllArgsConstructor

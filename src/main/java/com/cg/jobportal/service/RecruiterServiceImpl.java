@@ -56,6 +56,10 @@ public class RecruiterServiceImpl implements RecruiterService {
 			throw new  InvalidRecruiterException();
 	}
 	}
+<<<<<<< HEAD
+}
+=======
 }
 
 
+>>>>>>> 7f37360aefe66e1e0fdada74a6de0e6031673952

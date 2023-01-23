@@ -15,7 +15,7 @@ public interface RecruiterService {
 	
 	List<Recruiter> getAllRecruiters();
 	
-	Recruiter getRecruiterById(long Id) throws InvalidRecruiterException;
+	Recruiter getRecruiterById(long recruiterId) throws InvalidRecruiterException;
 	
 	String deleteById(long id);
 	

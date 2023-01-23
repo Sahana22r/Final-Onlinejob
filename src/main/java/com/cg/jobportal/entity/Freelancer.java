@@ -10,7 +10,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import lombok.NoArgsConstructor;
-
+/**************************************************************************************
+ * @author       Arpita sp 
+ * Description : This is the Entity class for freelancer module. 
+ * Created Date: 23 January, 2023 
+ * 
+ *************************************************************************************/
 @Entity
 @Data
 @AllArgsConstructor

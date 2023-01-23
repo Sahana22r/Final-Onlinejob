@@ -27,23 +27,42 @@ public class FreelancerController {
 
 	@Autowired
 	private FreelancerService freelancerService;
-	
+	/*****************************************************************************************
+	 * Method      : saveFreelancer       
+	 * @Param        freelancer
+	 * @return       Response Entity of Object type
+	 * Description : This method adds a new freelancer.
+	 * @Postmapping: Post mapping requests a body from the user
+	 * 				 which is then persisted onto the database.
+	 ****************************************************************************************/
 	@PostMapping("/save")
 
+
+
 	 public ResponseEntity<Freelancer> saveFreelancer(@RequestBody Freelancer freelancer) throws FreelancerAlreadyExistException {
+
 		Freelancer saved = freelancerService.saveFreelancer(freelancer);
 		return new ResponseEntity<>(saved,HttpStatus.CREATED);
-		 
 	 }
 	
+
 	
+
 	 @GetMapping("/all")
 	 public ResponseEntity<List<Freelancer>> getAllFreelancer() {
 		List<Freelancer> freelancer=freelancerService.getAllFreelancer();
 		return new ResponseEntity<>(freelancer, HttpStatus.OK);
 		 
 	 }
-	 
+	 /*****************************************************************************************
+		 * Method      : getFreelancerById       
+		 * @Param        id
+		 * @return       Freelancer object
+		 * Description : This method fetches a freelancer based on the unique id.
+		 * @Getmapping : Get mapping expects a PathVariable to be passed 
+		 *               which is then used to return the entity object 
+		 *               that is fetched from the database.
+		 ****************************************************************************************/
 	 @GetMapping("/{id}")
 	 public ResponseEntity<Freelancer> getFreelancerId(@PathVariable long id) throws InvalidFreelancerException{
 		Freelancer freelancer=freelancerService.getFreelancerById(id);

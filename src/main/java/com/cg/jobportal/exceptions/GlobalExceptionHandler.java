@@ -1,5 +1,10 @@
 package com.cg.jobportal.exceptions;
-
+/**************************************************************************************
+ * @author       Team
+ * Description : This is the Global Exception Handler class. 
+ * Created Date: 23 January, 2023 
+ * 
+ *************************************************************************************/
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 89df81da66a85d8d23f0ab63a4aee050f97f6eca
 package com.cg.jobportal.controller;
 
 import java.util.List;
@@ -69,13 +74,19 @@ public class RecruiterController {
 		return new ResponseEntity<>(recruiter, HttpStatus.OK);
 	}
 
+	
+	
+	
+
+
 	/***********************************************************************************************************************
 	 * @param id
 	 * @return Response Entity of recruiter type
 	 * @DeleteMapping: Delete mapping expects a PathVariable to be passed which is
 	 *                 used to delete the object from the database.
 	 **********************************************************************************************************************/
-	@DeleteMapping("/deleteRecruiterId/{id}");
+	@DeleteMapping("/deleteRecruiterId/{id}")
+
 	public ResponseEntity<String> deleteById(@PathVariable long id) {
 		String delete = recruiterService.deleteById(id);
 		return new ResponseEntity<>(delete, HttpStatus.OK);
