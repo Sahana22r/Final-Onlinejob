@@ -8,7 +8,12 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**************************************************************************************
+ * @author       Mohamed kather 
+ * Description : This is the Entity class for Admin module. 
+ * Created Date: 23 January, 2023 
+ * 
+ *************************************************************************************/
 
 @Entity
 @Data

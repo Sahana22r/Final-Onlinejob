@@ -19,11 +19,20 @@ public class SkillServiceImpl implements SkillService {
 	private SkillRepository skillRepository;
 	
 	@Override
+<<<<<<< HEAD
 	public  Skill saveSkill(Skill skill) throws SkillAlreadyExistsException{
 		if(skillRepository.existsById(skill.getSkillId)) {
 			throw new SkillAlreadyExistsException();
 		}
 		return skillRepository.save(skill);
+=======
+	public  Skill saveSkill(Skill skill) throws InvalidSkillException{
+		if(skillRepo.existsById(skill.getId())) {
+			throw new InvalidSkillException();
+		}
+		Skill savedSkill= skillRepo.save(skill);
+		return savedSkill;
+>>>>>>> 0afedd5f9c5b050f7184c8029eb6066d2b596b5e
 	}
 	
 	@Override

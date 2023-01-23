@@ -1,22 +1,21 @@
 package com.cg.jobportal.exceptions;
 /**************************************************************************************
- * @author       Vedavyas 
- * Description : This is bookmarkedjob already exists exception class. 
+ * @author       Arpitha sp 
+ * Description : This is freelancer already exist exception class. 
  * Created Date: 23 January, 2023 
  * 
  *************************************************************************************/
-public class BookmarkedJobExistException extends Exception {
+public class FreelancerAlreadyExistException extends Exception {
 	
 	private String msg;
 
-	public BookmarkedJobExistException(String msg) {
+	public FreelancerAlreadyExistException(String msg) {
 		super();
 		this.msg = msg;
 	}
 
-	public BookmarkedJobExistException() {
+	public FreelancerAlreadyExistException() {
 		super();
 	}
-	
 
 }

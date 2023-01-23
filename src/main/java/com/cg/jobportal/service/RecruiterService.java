@@ -4,17 +4,21 @@ import java.util.List;
 import java.util.Optional;
 
 import com.cg.jobportal.entity.Recruiter;
+import com.cg.jobportal.exceptions.InvalidRecruiterException;
+import com.cg.jobportal.exceptions.RecruiterAlreadyExistException;
+
+import jakarta.validation.Valid;
 
 public interface RecruiterService {
 	
-	Recruiter saveRecruiter(Recruiter rec);
+	Recruiter saveRecruiter(@Valid Recruiter recruiter) throws RecruiterAlreadyExistException;
 	
 	List<Recruiter> getAllRecruiters();
 	
-	Optional<Recruiter>getRecruiterById(Long Id);
+	Recruiter getRecruiterById(long recruiterId) throws InvalidRecruiterException;
 	
-	String deleteById(Long id);
+	String deleteById(long id);
 	
-	Recruiter updateRecruiter(Recruiter rec);
+	Recruiter updateRecruiter(long id,Recruiter recruiter) throws InvalidRecruiterException;
 
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.cg.jobportal.entity.BookmarkedFreelancer;
 import com.cg.jobportal.exceptions.BookmarkedFreelancerAlreadyExistsException;
-import com.cg.jobportal.exceptions.NoBookmarkedFreelancerExistsException;
+import com.cg.jobportal.exceptions.InvalidBookmarkedFreelancerException;
 import com.cg.jobportal.repository.BookmarkedFreelancerRepository;
 
 
@@ -33,9 +33,9 @@ public class BookmarkedFreelancerServiceImpl implements BookmarkedFreelancerServ
 	}
 	
 	@Override
-	public Optional<BookmarkedFreelancer> getBookmarkedFreelancerById(long id) throws NoBookmarkedFreelancerExistsException{
+	public Optional<BookmarkedFreelancer> getBookmarkedFreelancerById(long id) throws InvalidBookmarkedFreelancerException{
 		if(!bookRepo.existsById(id))
-			throw new NoBookmarkedFreelancerExistsException();
+			throw new InvalidBookmarkedFreelancerException();
 		return bookRepo.findById(id);
 	}
 	@Override

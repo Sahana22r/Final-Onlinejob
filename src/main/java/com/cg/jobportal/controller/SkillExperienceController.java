@@ -12,11 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.jobportal.entity.Skill;
 import com.cg.jobportal.entity.SkillExperience;
-import com.cg.jobportal.exceptions.InvalidSkillException;
 import com.cg.jobportal.exceptions.InvalidSkillExperienceException;
 import com.cg.jobportal.service.SkillExperienceService;
 
+<<<<<<< HEAD
 
+=======
+/**********************************************************************************
+ * @author sangeetha
+ * Created Date: 23 January, 2023 
+ * Description: This class is the controller for the SkillExperience module
+ **********************************************************************************/
+>>>>>>> 0afedd5f9c5b050f7184c8029eb6066d2b596b5e
 @RestController
 
 public class SkillExperienceController {
@@ -24,6 +31,13 @@ public class SkillExperienceController {
 	@Autowired
 	private SkillExperienceService skillExperienceService;
 
+	/******************************************************************************
+	 * @param skillexperience
+	 * @return: Response Entity of object type 
+	 * @throws InvalidSkillExperienceException
+	 * @postmapping: Post mapping requests a body from the user which is then
+	 *               persisted onto the database.
+	 *****************************************************************************/
 	@PostMapping("/addExperience")
 	public ResponseEntity<SkillExperience> addSkillExperience(@RequestBody SkillExperience skillexperience) throws InvalidSkillExperienceException {
 		
@@ -31,6 +45,14 @@ public class SkillExperienceController {
 			return new ResponseEntity<SkillExperience>(experience, HttpStatus.OK);
 	}
 
+	/********************************************************************************
+	 * @param id
+	 * @return: Response Entity of object type 
+	 * @throws InvalidSkillExperienceException
+	 * @GetMapping: Get mapping expects a PathVariable to be passed which is then
+	 *              used to return the entity object that is fetched from the
+	 *              database.
+	 *********************************************************************************/
 	@GetMapping("/getExperience/{id}")
 	public ResponseEntity<Object> getById(@PathVariable long id)throws InvalidSkillExperienceException {
 	
