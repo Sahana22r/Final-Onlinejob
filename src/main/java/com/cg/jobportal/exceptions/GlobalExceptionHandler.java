@@ -25,8 +25,8 @@ public class GlobalExceptionHandler {
 				HttpStatus.CONFLICT);
 	}
 
-	@ExceptionHandler(value = NoBookmarkedFreelancerExistsException.class)
-	public ResponseEntity<String> NoBookmarkedFreelancerExistsException(NoBookmarkedFreelancerExistsException msg) {
+	@ExceptionHandler(value = InvalidBookmarkedFreelancerException.class)
+	public ResponseEntity<String> InvalidBookmarkedFreelancerException(InvalidBookmarkedFreelancerException msg) {
 		return new ResponseEntity<String>(" No bookmarked freelancer exists", HttpStatus.CONFLICT);
 	}
 
@@ -62,4 +62,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String>DuplicateSkillException(DuplicateSkillException msg){
     	return new ResponseEntity<String>("Skill Already exist",HttpStatus.CONFLICT);
     }
+    
+    @ExceptionHandler(value = FreelancerAlreadyExistException.class)
+	public ResponseEntity<String> freelancerAlreadyExistException(FreelancerAlreadyExistException msg) {
+		return new ResponseEntity<String>("Freelancer Already Exist,Please Try Again.", HttpStatus.CONFLICT);
+	}
 }

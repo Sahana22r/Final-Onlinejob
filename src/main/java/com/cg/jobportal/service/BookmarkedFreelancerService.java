@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.cg.jobportal.entity.BookmarkedFreelancer;
 import com.cg.jobportal.exceptions.BookmarkedFreelancerAlreadyExistsException;
-import com.cg.jobportal.exceptions.NoBookmarkedFreelancerExistsException;
+import com.cg.jobportal.exceptions.InvalidBookmarkedFreelancerException;
 
 public interface BookmarkedFreelancerService {
 
@@ -14,7 +14,7 @@ public interface BookmarkedFreelancerService {
 
 	List<BookmarkedFreelancer> getAllBookmarkedFreelancer();
 
-	Optional<BookmarkedFreelancer> getBookmarkedFreelancerById(long id) throws NoBookmarkedFreelancerExistsException;
+	Optional<BookmarkedFreelancer> getBookmarkedFreelancerById(long id) throws InvalidBookmarkedFreelancerException;
 
 	String deleteBookmarkedFreelancerById(long id);
 
