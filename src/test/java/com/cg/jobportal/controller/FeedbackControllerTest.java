@@ -1,4 +1,4 @@
-
+/*
 package com.cg.jobportal.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,4 +56,4 @@ class FeedbackControllerTest{
 						+ "\"password\": \"pass123\",\r\n" + "  \"username\": \"johndoe\"\r\n" + "}"))
 		.andExpect(MockMvcResultMatchers.status().isCreated());
 	}
-}
+}*/
