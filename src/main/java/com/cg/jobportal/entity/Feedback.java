@@ -30,7 +30,7 @@ public class Feedback {
 	@Min(1)
 	@Max(10)
 	@Column(nullable = false)
-	Integer ranges;
+	int ranges;
 	
 	@Length(max = 50)
 	@Column(nullable = false)

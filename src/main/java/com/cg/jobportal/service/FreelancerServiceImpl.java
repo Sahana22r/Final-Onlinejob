@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.jobportal.entity.Freelancer;
+import com.cg.jobportal.exceptions.FreelancerAlreadyExistException;
 import com.cg.jobportal.exceptions.InvalidFreelancerException;
 import com.cg.jobportal.repository.FreelancerRepository;
 
@@ -14,10 +15,13 @@ import com.cg.jobportal.repository.FreelancerRepository;
 public class FreelancerServiceImpl implements FreelancerService {
     
 	@Autowired
-	FreelancerRepository freelancerRepository;
+	private FreelancerRepository freelancerRepository;
 
 	@Override
-	public Freelancer saveFreelancer(Freelancer freelancer) {
+	public Freelancer saveFreelancer(Freelancer freelancer)throws FreelancerAlreadyExistException {
+		if (freelancerRepository.existsById(freelancer.getId())) {
+			throw new FreelancerAlreadyExistException();
+		}
 		return freelancerRepository.save(freelancer);
 	}
 
